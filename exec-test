@@ -5,4 +5,10 @@
 exec 1> ~/foo1.txt
 echo "Boo."
 
+# Open fd 3
+exec 3> some_file.txt
+
+# CLose fd 3
+exec 3>&-
+
 # End of script
