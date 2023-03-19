@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# exec-test - Test external redirection and exec
+
+exec 1> ~/foo1.txt
+echo "Boo."
+
+# End of script
