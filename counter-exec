@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# counter-exec - Count number of lines in a pipe
+
+exec 3> /dev/tty # open fd 3 and point to controlling terminal
+
+count=0
+while read; do # read line from stdin
+  echo "$REPLY" # send line to stdout
+  ((count++))
+  printf "\b\b\b\b\b\b%06d" $count >&3
+done
+echo " Lines Counted" >&3
+
+exec 3>&- # close fd 3
